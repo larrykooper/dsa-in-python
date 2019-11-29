@@ -1,11 +1,18 @@
 """
 I will implement stack as a linked list
 """
-from linked_list/linked_list import LinkedList
+from linked_list import LinkedList
 
 class Stack:
 
-    def push(data):
-        stack.insert_at_beginning(data)
+    def __init__(self):
+        self.list = LinkedList()
 
-    def pop(data)
+    def push(self, data):
+        self.list.insert_at_beginning(data)
+        return self
+
+    #def pop(data)
+
+    def count(self):
+        return self.list.count()
