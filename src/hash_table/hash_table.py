@@ -6,7 +6,7 @@
     We don't want a power of 2 because then not all the bits of k will determine h(k)
 """
 
-from linked_list import LinkedList
+from src.linked_list.linked_list import LinkedList
 
 class HashTable:
 

@@ -1,7 +1,7 @@
 """
-I will implement stack as a linked list
+I implement stack as a linked list
 """
-from linked_list import LinkedList
+from src.linked_list.linked_list import LinkedList
 
 class Stack:
 

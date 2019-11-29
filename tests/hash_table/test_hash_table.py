@@ -1,4 +1,4 @@
-from hash_table import HashTable
+from src.hash_table.hash_table import HashTable
 
 class TestHashTable:
 
@@ -14,7 +14,6 @@ class TestHashTable:
         h.insert(33)
         hash = h.h(10)
         assert h.slot_cardinality(hash) == 2
-
 
     def test_search_when_not_found(self):
         h = HashTable()

@@ -1,4 +1,4 @@
-from linked_list_node import LinkedListNode
+from src.linked_list.linked_list_node import LinkedListNode
 
 # THIS IS A SINGLY LINKED LIST
 
