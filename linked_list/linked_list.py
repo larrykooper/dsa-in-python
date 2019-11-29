@@ -49,7 +49,10 @@ class LinkedList:
 
 
     def remove_key_and_adjust(self, lead_pointer, trail_pointer):
-        trail_pointer.next = lead_pointer.next
+        if trail_pointer == lead_pointer:
+            self.head = self.head.next
+        else:
+            trail_pointer.next = lead_pointer.next
 
     def count(self):
         n = self.head

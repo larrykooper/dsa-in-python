@@ -51,4 +51,12 @@ class TestLinkedList:
         with pytest.raises(DataNotFound):
             l.delete_key(17)
 
+    def test_delete_key_at_beginning(self):
+        l = LinkedList()
+        l.insert_at_beginning(4)
+        l.insert_at_beginning(9)
+        l.insert_at_beginning(3)
+        l.delete_key(3)
+        assert l.count() == 2
+
 
