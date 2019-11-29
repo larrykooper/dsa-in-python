@@ -8,16 +8,16 @@ print("DISPLAY:")
 print(b.display())
 
 print("inserting 3")
-
 b.insert(3)
 print("DISPLAY:")
 print(b.display())
-print("inserting 9")
 
+print("inserting 9")
 b.insert(9)
 print("DISPLAY:")
 print(b.display())
 
+print("inserting 4")
 b.insert(4)
 print("DISPLAY:")
 print(b.display())

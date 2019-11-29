@@ -14,6 +14,9 @@ class BinarySearchTree:
         self.right = None
 
     # display is inorder traversal
+    # For binary trees, inorder traversal is also depth-first-search (DFS)
+    # That isn't true for general graphs because for them there's no such thing
+    # as "inorder traversal"
     def display(self):
         if self.left is None:
             leftStr = ''
@@ -42,7 +45,6 @@ class BinarySearchTree:
         n = BinarySearchTreeNode(key)
 
         if self.isEmpty():
-            print("self is empty")
             self.root = n
             return
         if key > self.root.key:
