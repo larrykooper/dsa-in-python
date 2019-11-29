@@ -1,6 +1,4 @@
 from linked_list import LinkedList
-from linked_list import DataNotFound
-import pytest
 
 class TestLinkedList:
 
@@ -48,8 +46,8 @@ class TestLinkedList:
         l.insert_at_beginning(4)
         l.insert_at_beginning(9)
         l.insert_at_beginning(3)
-        with pytest.raises(DataNotFound):
-            l.delete_key(17)
+        res = l.delete_key(17)
+        assert res is None
 
     def test_delete_key_at_beginning(self):
         l = LinkedList()
@@ -57,6 +55,14 @@ class TestLinkedList:
         l.insert_at_beginning(9)
         l.insert_at_beginning(3)
         l.delete_key(3)
+        assert l.count() == 2
+
+    def test_delete_key_at_end(self):
+        l = LinkedList()
+        l.insert_at_beginning(4)
+        l.insert_at_beginning(9)
+        l.insert_at_beginning(3)
+        l.delete_key(4)
         assert l.count() == 2
 
 

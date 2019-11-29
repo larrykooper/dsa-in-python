@@ -10,7 +10,6 @@ from linked_list import LinkedList
 
 class HashTable:
 
-
     def __init__(self):
         self.table_size = 23
         self.array = [None] * self.table_size
@@ -31,6 +30,15 @@ class HashTable:
             return None
         else:
             return self.array[slot].search(key)
+
+    # delete element with key = key
+    # return None if not found, key if found
+    def delete(self, key):
+        slot = self.h(key)
+        if self.array[slot] is None:
+            return None
+        else:
+            return self.array[slot].delete_key(key)
 
     # hash function
     def h(self, key):

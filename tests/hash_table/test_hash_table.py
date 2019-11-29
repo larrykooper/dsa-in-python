@@ -29,3 +29,10 @@ class TestHashTable:
         res = h.search(33)
         assert res == 33
 
+    def test_delete_where_found(self):
+        h = HashTable()
+        h.insert(10)
+        h.insert(33)
+        h.insert(56)
+        LKHERE
+

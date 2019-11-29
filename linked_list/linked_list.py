@@ -45,7 +45,7 @@ class LinkedList:
         if lead_pointer.data == key:
             self.remove_key_and_adjust(lead_pointer, trail_pointer)
         else:
-            raise DataNotFound
+            return None
 
 
     def remove_key_and_adjust(self, lead_pointer, trail_pointer):
@@ -75,6 +75,5 @@ class LinkedList:
         else:
             return None
 
-class DataNotFound(Exception):
-    pass
+
 
