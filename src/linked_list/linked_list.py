@@ -9,6 +9,8 @@ class LinkedList:
         self.head = None
 
     # pass delim = '\n' to display on separate lines
+    # usage:
+    #    print(l.display_iterative('\n'))
     def display_iterative(self, delim):
         retval = ''
         n = self.head
@@ -18,7 +20,8 @@ class LinkedList:
         retval += str(n.data)
         return retval
 
-
+    # usage:
+    #    print(l.display_recursive('\n'))
     def display_recursive(self, delim):
         if self.is_empty():
             return ''
