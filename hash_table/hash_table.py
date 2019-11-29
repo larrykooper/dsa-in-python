@@ -24,8 +24,13 @@ class HashTable:
         return self
 
     # search for an element with key = key
+    # return None if not found, key if found
     def search(self, key):
-        slot = self.h(key)   # LKHERE
+        slot = self.h(key)
+        if self.array[slot] is None:
+            return None
+        else:
+            return self.array[slot].search(key)
 
     # hash function
     def h(self, key):
