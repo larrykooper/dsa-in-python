@@ -34,5 +34,5 @@ class TestHashTable:
         h.insert(10)
         h.insert(33)
         h.insert(56)
-        LKHERE
-
+        res = h.delete(33)
+        assert res == 33
