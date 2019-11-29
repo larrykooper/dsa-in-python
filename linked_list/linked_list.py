@@ -8,14 +8,28 @@ class LinkedList:
         # head is a LinkedListNode
         self.head = None
 
-    def __str__(self):
+    # pass delim = '\n' to display on separate lines
+    def display_iterative(self, delim):
         retval = ''
         n = self.head
         while n.next is not None:
-            retval += str(n.data) + '\n'
+            retval += str(n.data) + delim
             n = n.next
         retval += str(n.data)
         return retval
+
+
+    def display_recursive(self, delim):
+        if self.is_empty():
+            return ''
+        retval = ''
+        n = self.head
+        retval += str(n.data) + delim
+        l = LinkedList()
+        l.head = n.next
+        retval += l.display_recursive(delim)
+        return retval
+
 
     def is_empty(self):
         return self.head is None
