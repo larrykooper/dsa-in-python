@@ -14,6 +14,11 @@ class TestLinkedList:
         value = l.remove_from_beginning()
         assert value == 20
 
+    def test_remove_from_beginning_when_empty(self):
+        l = LinkedList()
+        value = l.remove_from_beginning()
+        assert value is None
+
 
     def test_search_when_not_found(self):
         l = LinkedList()

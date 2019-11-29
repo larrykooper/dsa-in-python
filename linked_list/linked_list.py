@@ -17,6 +17,8 @@ class LinkedList:
         retval += str(n.data)
         return retval
 
+    def is_empty(self):
+        return self.head is None
 
     def insert_at_beginning(self, data):
         n = LinkedListNode(data)
@@ -24,8 +26,10 @@ class LinkedList:
         self.head = n
         return self
 
-
+    # If list is empty, return None
     def remove_from_beginning(self):
+        if self.is_empty():
+            return None
         retval = self.head.data
         self.head = self.head.next
         return retval
@@ -56,6 +60,8 @@ class LinkedList:
             trail_pointer.next = lead_pointer.next
 
     def count(self):
+        if self.is_empty():
+            return 0
         n = self.head
         count = 0
         while n.next is not None:

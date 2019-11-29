@@ -13,3 +13,8 @@ class TestStack:
         s.push(22)
         val = s.pop()
         assert val == 22
+
+    def test_pop_underflow(self):
+        s = Stack()
+        val = s.pop()
+        assert val is None
