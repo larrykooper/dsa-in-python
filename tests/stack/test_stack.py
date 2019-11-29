@@ -18,3 +18,11 @@ class TestStack:
         s = Stack()
         val = s.pop()
         assert val is None
+
+    def test_count(self):
+        s = Stack()
+        s.push(23)
+        s.push(22)
+        s.push(104)
+        assert s.count() == 3
+
