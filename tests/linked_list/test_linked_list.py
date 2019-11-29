@@ -37,8 +37,8 @@ class TestLinkedList:
         l.insert_at_beginning(4)
         l.insert_at_beginning(9)
         l.insert_at_beginning(3)
-        l.delete_key(4)
-        # Test passes if no exception is raised
+        res = l.delete_key(4)
+        assert res == 4
         assert l.count() == 4
 
     def test_delete_key_not_found(self):
@@ -54,7 +54,8 @@ class TestLinkedList:
         l.insert_at_beginning(4)
         l.insert_at_beginning(9)
         l.insert_at_beginning(3)
-        l.delete_key(3)
+        res = l.delete_key(3)
+        assert res == 3
         assert l.count() == 2
 
     def test_delete_key_at_end(self):
@@ -62,7 +63,8 @@ class TestLinkedList:
         l.insert_at_beginning(4)
         l.insert_at_beginning(9)
         l.insert_at_beginning(3)
-        l.delete_key(4)
+        res = l.delete_key(4)
+        assert res == 4
         assert l.count() == 2
 
 

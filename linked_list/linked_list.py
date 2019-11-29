@@ -31,19 +31,20 @@ class LinkedList:
         return retval
 
     # deletes first appearance of key
-    # exception raised if key not there
+    # return None if not found, key if found
     def delete_key(self, key):
         lead_pointer = self.head
         trail_pointer = self.head
         while lead_pointer.next is not None:
             if lead_pointer.data == key:
                 self.remove_key_and_adjust(lead_pointer, trail_pointer)
-                return
+                return key
             trail_pointer = lead_pointer
             lead_pointer = lead_pointer.next
         # If here, lead_pointer points to last element
         if lead_pointer.data == key:
             self.remove_key_and_adjust(lead_pointer, trail_pointer)
+            return key
         else:
             return None
 
