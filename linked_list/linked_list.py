@@ -36,3 +36,18 @@ class LinkedList:
             n = n.next
         count += 1
         return count
+
+    # returns query if found, returns None if not
+    def search(self, query):
+        n = self.head
+        while n.next is not None:
+            if n.data == query:
+                return query
+            n = n.next
+        if n.data == query:
+            return query
+        else:
+            return None
+
+
+

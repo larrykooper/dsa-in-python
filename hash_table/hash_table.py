@@ -11,11 +11,9 @@ from linked_list import LinkedList
 class HashTable:
 
 
-
     def __init__(self):
         self.table_size = 23
         self.array = [None] * self.table_size
-
 
     def insert(self, key):
         slot = self.h(key)
@@ -24,6 +22,10 @@ class HashTable:
             self.array[slot] = l
         self.array[slot].insert_at_beginning(key)
         return self
+
+    # search for an element with key = key
+    def search(self, key):
+        slot = self.h(key)   # LKHERE
 
     # hash function
     def h(self, key):
