@@ -12,7 +12,8 @@ class Stack:
         self.list.insert_at_beginning(data)
         return self
 
-    #def pop(data)
+    def pop(self):
+        return self.list.remove_from_beginning()
 
     def count(self):
         return self.list.count()
