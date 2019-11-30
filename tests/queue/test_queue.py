@@ -15,4 +15,10 @@ class TestQueue:
         assert res == 45
         assert q.count() == 1
 
+    def test_count(self):
+        q = Queue()
+        q.enqueue(3)
+        q.enqueue(88)
+        assert q.count() == 2
+
 
