@@ -19,6 +19,15 @@ class LinkedListWithTailPointer:
             self.tail = n
             self.tail.next = n
 
+    def remove_from_beginning(self):
+        if self.is_empty():
+            return None
+        if self.count() == 1:
+            self.tail = None
+        retval = self.head.data
+        self.head = self.head.next
+        return retval
+
 
     def is_empty(self):
         return self.head is None
