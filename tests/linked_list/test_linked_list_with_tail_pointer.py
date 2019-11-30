@@ -13,3 +13,4 @@ class TestLinkedListWithTailPointer:
         retval = l.remove_from_beginning()
         assert l.is_empty()
         assert retval == 50
+
