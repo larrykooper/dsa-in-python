@@ -58,7 +58,6 @@ class Graph:
 
     Pseudocode for BFS:
 
-    visit s
     enqueue s
     do this until the queue is exhausted:
         dequeue
@@ -81,4 +80,23 @@ class Graph:
                 if not self.marked[vertex]:
                     q.enqueue(vertex)
         return visited
+
+    """
+    Pseudocode for DFS:
+
+    visit s
+        for each unvisited neighbor, nabe, of s:
+            dfs(nabe)
+    """
+
+    def dfs(self, s):
+        self.marked[s] = True
+        visited = [s]
+        neighbors = self.adj[s].traverse()
+        for vertex in neighbors:
+            if not self.marked[vertex]:
+                visited = visited + self.dfs(vertex)
+        return visited
+
+
 
