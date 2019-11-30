@@ -9,15 +9,14 @@ class LinkedListWithTailPointer:
         self.head = None
         self.tail = None
 
-
     def insert_at_end(self, data):
         n = LinkedListNode(data)
         if self.tail is None:
             self.tail = n
             self.head = n
         else:
-            self.tail = n
             self.tail.next = n
+            self.tail = n
 
     def remove_from_beginning(self):
         if self.is_empty():
@@ -40,7 +39,8 @@ class LinkedListWithTailPointer:
             return 1
         n = self.head
         count = 0
-        while n != self.tail:
+        while n.next is not None:
             count += 1
             n = n.next
+        count += 1
         return count
