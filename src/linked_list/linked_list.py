@@ -110,5 +110,23 @@ class LinkedList:
         else:
             return None
 
+    # first to last element = last elem
+    # second to last element = last elem but 1
+    #   etc.
+    # Rule: You cannot use "count" (if you could, it would be trivial)
+    # From the book Cracking the Coding Interview,
+    # by Gayle Laakmann McDowell, Fifth Edition, page 77
+    #
+    # Basic idea of the solution: the variable i counts backward from the
+    # end of the list, and you also return that node
+    def find_kth_to_last_element(self, head, k, i):
+        if head is None:
+            return (None, 0)
+        (node, i) = self.find_kth_to_last_element(head.next, k, i)
+        i += 1
+        if i == k:
+            return (head, i)
+        return (node, i)
+
 
 

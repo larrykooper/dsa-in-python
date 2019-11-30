@@ -17,7 +17,6 @@ class TestGraph:
         # We use set in the assertion because order can differ
         assert set(visited) == set([3, 1, 5, 0, 2, 4, 6])
 
-
     def test_dfs(self):
         g = Graph(5)
 
@@ -31,4 +30,3 @@ class TestGraph:
 
         visited = g.dfs(0)
         assert set(visited) == set([0, 4, 3, 1, 2])
-

@@ -78,5 +78,15 @@ class TestLinkedList:
         res = l.traverse()
         assert res == [3, 9, 4]
 
+    def test_find_kth_to_last(self):
+        l = LinkedList()
+        l.insert_at_beginning(4)
+        l.insert_at_beginning(3)
+        l.insert_at_beginning(7)
+        l.insert_at_beginning(9)
+        res = l.find_kth_to_last_element(l.head, 2, 0)
+        my_node = res[0]
+        assert my_node.data == 3
+
 
 
