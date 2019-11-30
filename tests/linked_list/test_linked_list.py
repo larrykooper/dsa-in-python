@@ -7,7 +7,6 @@ class TestLinkedList:
         l.insert_at_beginning(10)
         assert l.count() == 1
 
-
     def test_remove_from_beginning(self):
         l = LinkedList()
         l.insert_at_beginning(20)
@@ -18,7 +17,6 @@ class TestLinkedList:
         l = LinkedList()
         value = l.remove_from_beginning()
         assert value is None
-
 
     def test_search_when_not_found(self):
         l = LinkedList()
@@ -71,5 +69,14 @@ class TestLinkedList:
         res = l.delete_key(4)
         assert res == 4
         assert l.count() == 2
+
+    def test_traverse(self):
+        l = LinkedList()
+        l.insert_at_beginning(4)
+        l.insert_at_beginning(9)
+        l.insert_at_beginning(3)
+        res = l.traverse()
+        assert res == [3, 9, 4]
+
 
 

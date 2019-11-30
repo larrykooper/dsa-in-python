@@ -33,6 +33,17 @@ class LinkedList:
         retval += l.display_recursive(delim)
         return retval
 
+    # traverse returns a Python list of all linked list members from beginning to end
+    def traverse(self):
+        if self.is_empty():
+            return []
+        n = self.head
+        retval = [n.data]
+        l = LinkedList()
+        l.head = n.next
+        retval = retval + l.traverse()
+        return retval
+
 
     def is_empty(self):
         return self.head is None
