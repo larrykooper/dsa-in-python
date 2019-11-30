@@ -21,4 +21,11 @@ class TestQueue:
         q.enqueue(88)
         assert q.count() == 2
 
+    def test_is_empty(self):
+        q = Queue()
+        q.enqueue(4)
+        q.enqueue(8)
+        res = q.dequeue()
+        res = q.dequeue()
+        assert q.is_empty
 

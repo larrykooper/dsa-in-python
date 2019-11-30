@@ -20,8 +20,5 @@ class Queue:
     def count(self):
         return self.list.count()
 
-
-
-
-
-
+    def is_empty(self):
+        return self.list.count() == 0
