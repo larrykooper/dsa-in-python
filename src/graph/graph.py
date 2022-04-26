@@ -1,50 +1,62 @@
 from src.linked_list.linked_list import LinkedList
 from src.queue.queue import Queue
 """
- I will represent a graph as a collection of adjacency lists
- which is very similar to how I represented a hash table.
-
-Each adjacency list is a linked list.
+ I will represent a graph as a collection of adjacency lists. Each adjacency list 
+ is a linked list. The collection is called "edges."
+ 
+ "nvertices" is the number of vertices in the graph
+ "nedges" is the number of edges in the graph.
 
  This is an undirected graph.
 
  By my convention, vertices are numbered from 0 to (number of vertices minus 1)
 
-Vertex constructor  - I took it out, put back if need it
-Graph constructor   done
-add_Edge      done
-display_Graph   done
-   writes out graph as
-   v ->  v1 v2 v3
-unmarkGraph  (marks all vertices as unvisited)
-dfs
-bfs
-
 """
 
 class Graph:
 
-    def __init__(self, number_of_vertices):
-        self.vertices = number_of_vertices
-        self.adj = [None] * self.vertices   # adj array is [None, None,..]
-        for i, adj_list in enumerate(self.adj):
+    MAXV = 100  # maximum number of vertices allowed
+
+    def __init__(self):
+
+        # Initialize the edges collection
+        self.edges = []
+        # Set edges to empty linked lists
+        for i in range(self.MAXV):
             l = LinkedList()
-            self.adj[i] = l
-        self.edges = 0
+            self.edges.append(l)
+        self.nvertices = 0
+        self.nedges = 0
         """
-         the marked list [its indices match the adj list]
+         the marked list [its indices match the adjacency list]
          contains which vertices have been visited
          Now, no vertices have been visited
         """
-        self.marked = [False] * self.vertices
+        self.marked = False * self.MAXV
 
-    def add_edge(self, v, w):
-        self.adj[v].insert_at_beginning(w)
-        self.adj[w].insert_at_beginning(v)
-        self.edges += 1
+    @classmethod
+    def read_graph(cls, path):
+        g = Graph()
+        with open(path) as f:
+            lines = f.readlines()
+            v, e = lines[0].split(' ')
+            g.nvertices = int(v)
+            g.nedges = int(e)
+            for i in range(1, g.nedges + 1):
+                x, y = lines[i].split(' ')
+                g.insert_edge(int(x), int(y))
+        return g
+
+
+
+    def insert_edge(self, v, w):
+        self.edges[v].insert_at_beginning(w)
+        self.edges[w].insert_at_beginning(v)
+        self.nedges += 1
 
     def display_graph(self):
-        for i, adj_list in enumerate(self.adj):
+        for i in range(self.nvertices):
+            adj_list = self.edges[i]
             print("{v_num} ->".format(v_num=i), end=" ")
             print(adj_list.display_recursive(" "))
 
@@ -65,7 +77,7 @@ class Graph:
         enqueue all of that vertex's unvisited neighbors
 
     """
-    def bfs(self, s):
+    def bfs(self, s):   # BFS is iterative, not recursive
         visited = []
         q = Queue()
         q.enqueue(s)
@@ -74,7 +86,7 @@ class Graph:
             self.marked[v] = True
             visited.append(v)
             # enqueue all vertex's unvisited neighbors
-            neighbors = self.adj[v].traverse()
+            neighbors = self.edges[v].traverse()   # calls traverse on linked list
             # print("neighbors: {}".format(neighbors))
             for vertex in neighbors:
                 if not self.marked[vertex]:
@@ -92,10 +104,10 @@ class Graph:
     def dfs(self, s):
         self.marked[s] = True
         visited = [s]
-        neighbors = self.adj[s].traverse()
+        neighbors = self.edges[s].traverse()
         for vertex in neighbors:
             if not self.marked[vertex]:
-                visited = visited + self.dfs(vertex)
+                visited = visited + self.dfs(vertex) # Recursive
         return visited
 
 

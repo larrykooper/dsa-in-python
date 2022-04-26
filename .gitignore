@@ -9,3 +9,5 @@ unittests.cfg
 
 logs/
 env/*
+
+.idea
