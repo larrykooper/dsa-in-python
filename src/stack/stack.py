@@ -17,3 +17,7 @@ class Stack:
 
     def count(self):
         return self.list.count()
+
+    def display_stack(self):
+        items = self.list.traverse()
+        print(items)
